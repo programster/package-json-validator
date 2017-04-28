@@ -17,7 +17,7 @@ class ArrayValidator implements ValidatorInterface
     }
     
     
-    public function validate($input)
+    public function validate($input) : bool
     {
         $isValid = false;
         
