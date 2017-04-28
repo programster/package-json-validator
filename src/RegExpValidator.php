@@ -6,7 +6,7 @@
 
 namespace iRAP\JsonValidator;
 
-class RegexpValidator implements ValidatorInterface
+class RegExpValidator implements ValidatorInterface
 {
     private $m_errorMessage = "";
     private $m_pattern;
