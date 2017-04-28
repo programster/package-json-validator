@@ -2,7 +2,7 @@
     "name": "irap/json-validator",
     "type": "library",
     "description": "A package to make it easy to use a validate JSON strings.",
-    "keywords": ["json, validation"],
+    "keywords": ["json", "validation"],
     "homepage": "https://github.com/iRAP-software/package-json-validator",
     "license": "MIT",
     "authors": [
