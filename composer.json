@@ -1,0 +1,30 @@
+{
+    "name": "irap/json-validator",
+    "type": "library",
+    "description": "A package to make it easy to use a validate JSON strings.",
+    "keywords": ["json, validation"],
+    "homepage": "https://github.com/iRAP-software/package-json-validator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stuart Page",
+            "email": "support@irap.org",
+            "homepage": "http://irap.org/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "iRAP\\JsonValidator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "iRAP\\JsonValidator\\Testing\\": "testing",
+            "iRAP\\JsonValidator\\Testing\\Tests\\": "testing/tests"
+        }
+    }
+}
