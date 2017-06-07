@@ -29,6 +29,21 @@ class RegExpValidator implements ValidatorInterface
         else
         {
             $stringForm = $input;
+            
+            // To test against json true/false/null, convert it to a string.
+            if ($input === false)
+            {
+                $stringForm = "false";
+            }
+            elseif ($input === true)
+            {
+                $stringForm = "true";
+            }
+            
+            if ($input === null)
+            {
+                $stringForm = "null";
+            }
         }
         
         $pregResult = preg_match($this->m_pattern, $stringForm);
