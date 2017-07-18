@@ -57,7 +57,7 @@ class ObjectValidator implements ValidatorInterface
                     throw new \Exception("Duplicate attribute definition on: " . $attributeName);
                 }
                 
-                $this->m_indexedAttributes[$attributeName] = $attribute;
+                $this->m_indexedAttributes[$attributeName] = $optionalAttribute;
             }
             else
             {
