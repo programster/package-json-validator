@@ -13,13 +13,18 @@ class ObjectValidator implements ValidatorInterface
     private $m_errorMessage = "";
     private $m_requiredAttributeNames = array(); // just the names of the requires attributes.
     private $m_optionalAttributeNames = array(); // just the names of the optional attributes
-    private $m_requiredAttributes  = array(); // attribute objs that must be in the obj
-    private $m_optionalAttributes  = array(); // attributes objs that may or may be in the obj
+    private $m_requiredAttributes; // collection of attribute that must be in the object
+    private $m_optionalAttributes; // collection attributes that may or may be in the object
     private $m_indexedAttributes = array(); // req and opt attribute objs indexed by name
     
     
-    public function __construct(AttributeCollection $requiredAttributes, AttributeCollection $optionalAttributes) 
+    public function __construct(AttributeCollection $requiredAttributes, AttributeCollection $optionalAttributes=null) 
     {
+        if ($optionalAttributes === null)
+        {
+            $optionalAttributes = new AttributeCollection();
+        }
+        
         $this->m_requiredAttributes = $requiredAttributes;
         $this->m_optionalAttributes = $optionalAttributes;
         
@@ -28,12 +33,12 @@ class ObjectValidator implements ValidatorInterface
             /* @var $attribute \Programster\JsonValidator\Attribute */
             $attributeName = $attribute->getName();
             $this->m_requiredAttributeNames[] = $attributeName;
-
+            
             if (isset($this->m_indexedAttributes[$attributeName]))
             {
                 throw new \Exception("Duplicate attribute definition on: " . $attributeName);
             }
-
+            
             $this->m_indexedAttributes[$attributeName] = $attribute;
         }
         
@@ -42,12 +47,12 @@ class ObjectValidator implements ValidatorInterface
             /* @var $attribute \Programster\JsonValidator\Attribute */
             $attributeName = $optionalAttribute->getName();
             $this->m_optionalAttributeNames[] = $attributeName;
-
+            
             if (isset($this->m_indexedAttributes[$attributeName]))
             {
                 throw new \Exception("Duplicate attribute definition on: " . $attributeName);
             }
-
+            
             $this->m_indexedAttributes[$attributeName] = $optionalAttribute;
         }
     }
