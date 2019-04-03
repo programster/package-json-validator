@@ -4,7 +4,7 @@
  * Interface for all validators.
  */
 
-namespace iRAP\JsonValidator;
+namespace Programster\JsonValidator;
 
 interface ValidatorInterface
 {

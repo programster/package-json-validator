@@ -8,7 +8,7 @@
  */
 
 
-namespace iRAP\JsonValidator;
+namespace Programster\JsonValidator;
 
 
 class RegExpObjectValidator implements ValidatorInterface

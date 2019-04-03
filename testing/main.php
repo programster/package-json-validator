@@ -24,7 +24,7 @@ print_r($tests);
 foreach ($tests as $test)
 {
     print "Runing test: " . $test . PHP_EOL;
-    $testFullName = '\\iRAP\\JsonValidator\\Testing\\Tests\\' . $test;    
+    $testFullName = '\\Programster\\JsonValidator\\Testing\\Tests\\' . $test;    
     $test = new $testFullName();
     $test->run();
 }

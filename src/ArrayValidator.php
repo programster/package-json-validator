@@ -4,7 +4,7 @@
  * A rule for validating the JSON string is an array.
  */
 
-namespace iRAP\JsonValidator;
+namespace Programster\JsonValidator;
 
 class ArrayValidator implements ValidatorInterface
 {
@@ -16,7 +16,7 @@ class ArrayValidator implements ValidatorInterface
     
     /**
      * Create an object to validate a JSON array of items.
-     * @param \iRAP\JsonValidator\ValidatorInterface $valueValidator - an object to validate the items within the array.
+     * @param \Programster\JsonValidator\ValidatorInterface $valueValidator - an object to validate the items within the array.
      * @param int $min - the minimum number of items the array needs to have. Default 0 for any number of items.
      * @param int $max - the maximum number of items the array can have. Default -1 for not set.
      * @param int $expectedCount - the exact number of items the array can have. Default -1 for not set.

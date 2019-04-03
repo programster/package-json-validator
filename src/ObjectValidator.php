@@ -5,7 +5,7 @@
  */
 
 
-namespace iRAP\JsonValidator;
+namespace Programster\JsonValidator;
 
 
 class ObjectValidator implements ValidatorInterface
@@ -18,52 +18,37 @@ class ObjectValidator implements ValidatorInterface
     private $m_indexedAttributes = array(); // req and opt attribute objs indexed by name
     
     
-    public function __construct($requiredAttributes, $optionalAttributes=array()) 
+    public function __construct(AttributeCollection $requiredAttributes, AttributeCollection $optionalAttributes) 
     {
         $this->m_requiredAttributes = $requiredAttributes;
         $this->m_optionalAttributes = $optionalAttributes;
         
         foreach ($this->m_requiredAttributes as $attribute)
         {
-            if (is_a($attribute, "iRAP\JsonValidator\Attribute"))
+            /* @var $attribute \Programster\JsonValidator\Attribute */
+            $attributeName = $attribute->getName();
+            $this->m_requiredAttributeNames[] = $attributeName;
+
+            if (isset($this->m_indexedAttributes[$attributeName]))
             {
-                /* @var $attribute \iRAP\JsonValidator\Attribute */
-                $attributeName = $attribute->getName();
-                $this->m_requiredAttributeNames[] = $attributeName;
-                
-                if (isset($this->m_indexedAttributes[$attributeName]))
-                {
-                    throw new \Exception("Duplicate attribute definition on: " . $attributeName);
-                }
-                
-                $this->m_indexedAttributes[$attributeName] = $attribute;
+                throw new \Exception("Duplicate attribute definition on: " . $attributeName);
             }
-            else
-            {
-                throw new \Exception("ObjectValidator: Required attributes need to be of the Attribute class.");
-            }
+
+            $this->m_indexedAttributes[$attributeName] = $attribute;
         }
         
         foreach ($this->m_optionalAttributes as $optionalAttribute)
         {
-            if (is_a($optionalAttribute, "iRAP\JsonValidator\Attribute"))
+            /* @var $attribute \Programster\JsonValidator\Attribute */
+            $attributeName = $optionalAttribute->getName();
+            $this->m_optionalAttributeNames[] = $attributeName;
+
+            if (isset($this->m_indexedAttributes[$attributeName]))
             {
-                /* @var $attribute \iRAP\JsonValidator\Attribute */
-                $attributeName = $optionalAttribute->getName();
-                $this->m_optionalAttributeNames[] = $attributeName;
-                
-                if (isset($this->m_indexedAttributes[$attributeName]))
-                {
-                    throw new \Exception("Duplicate attribute definition on: " . $attributeName);
-                }
-                
-                $this->m_indexedAttributes[$attributeName] = $optionalAttribute;
+                throw new \Exception("Duplicate attribute definition on: " . $attributeName);
             }
-            else
-            {
-                $msg = "ObjectValidator: Optional attributes need to be of class Attribute.";
-                throw new \Exception();
-            }
+
+            $this->m_indexedAttributes[$attributeName] = $optionalAttribute;
         }
     }
     

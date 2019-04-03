@@ -5,7 +5,7 @@
  * objects they hold as values.
  */
 
-namespace iRAP\JsonValidator\Testing\Tests;
+namespace Programster\JsonValidator\Testing\Tests;
 
 class Test4
 {
@@ -32,31 +32,31 @@ class Test4
         $jsonString = json_encode($myObj);
         
         $reqDatasetAttributes = array(
-            new \iRAP\JsonValidator\Attribute("id", new \iRAP\JsonValidator\RegexpValidator("/^[0-9]+$/")),
-            new \iRAP\JsonValidator\Attribute("name", new \iRAP\JsonValidator\RegexpValidator("/^[a-zA-Z0-9_ -]+$/")),
+            new \Programster\JsonValidator\Attribute("id", new \Programster\JsonValidator\RegexpValidator("/^[0-9]+$/")),
+            new \Programster\JsonValidator\Attribute("name", new \Programster\JsonValidator\RegexpValidator("/^[a-zA-Z0-9_ -]+$/")),
         );
         
-        $datasetObjValidator = new \iRAP\JsonValidator\ObjectValidator($reqDatasetAttributes);
+        $datasetObjValidator = new \Programster\JsonValidator\ObjectValidator($reqDatasetAttributes);
         
-        $datasetCollectionValidator = new \iRAP\JsonValidator\RegExpAttribute(
+        $datasetCollectionValidator = new \Programster\JsonValidator\RegExpAttribute(
             "/[0-9]+/", 
             $datasetObjValidator
         );
         
         $datasetCollectionValidator->setMaximumNumberOfMatches(2);
         
-        $datasetCollectionObject = new \iRAP\JsonValidator\RegExpObjectValidator($datasetCollectionValidator);
+        $datasetCollectionObject = new \Programster\JsonValidator\RegExpObjectValidator($datasetCollectionValidator);
         
-        $datasetsAttribute = new \iRAP\JsonValidator\Attribute(
+        $datasetsAttribute = new \Programster\JsonValidator\Attribute(
             "datasets", 
             $datasetCollectionObject
         );
         
-        $responseObjectValidator = new \iRAP\JsonValidator\ObjectValidator(
+        $responseObjectValidator = new \Programster\JsonValidator\ObjectValidator(
             array($datasetsAttribute) 
         );
 
-        $jsonValidator = new \iRAP\JsonValidator\JsonValidator($responseObjectValidator);
+        $jsonValidator = new \Programster\JsonValidator\JsonValidator($responseObjectValidator);
         $result = $jsonValidator->validate($jsonString);
 
         print "result: " . print_r($result, true) . PHP_EOL;

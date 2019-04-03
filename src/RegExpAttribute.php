@@ -5,7 +5,7 @@
  * This is used for the RegexpObjectValidator only.
  */
 
-namespace iRAP\JsonValidator;
+namespace Programster\JsonValidator;
 
 class RegExpAttribute
 {
@@ -19,7 +19,7 @@ class RegExpAttribute
      * Create an attribute that uses a regexp to match any number of elements in the object
      * that uses this to match its attributes. 
      * @param string $namePattern - the regexp to match the attributes of the json object.
-     * @param \iRAP\JsonValidator\ValidatorInterface $valueValidator - a validator to validate
+     * @param \Programster\JsonValidator\ValidatorInterface $valueValidator - a validator to validate
      *         the values that are matched to attributes that match the name pattern.
      * @param int $minMatches - the minimum number of attributes we are expecting to match to
      *                          pass validation.

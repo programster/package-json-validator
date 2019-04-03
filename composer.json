@@ -1,15 +1,15 @@
 {
-    "name": "irap/json-validator",
+    "name": "programster/json-validator",
     "type": "library",
     "description": "A package to make it easy to use a validate JSON strings.",
     "keywords": ["json", "validation"],
-    "homepage": "https://github.com/iRAP-software/package-json-validator",
+    "homepage": "https://github.com/programster/package-json-validator",
     "license": "MIT",
     "authors": [
         {
             "name": "Stuart Page",
-            "email": "support@irap.org",
-            "homepage": "http://irap.org/",
+            "email": "sdpagent@gamil.com",
+            "homepage": "https://blog.programster.org/",
             "role": "Developer"
         }
     ],
@@ -18,13 +18,13 @@
     },
     "autoload": {
         "psr-4": {
-            "iRAP\\JsonValidator\\": "src"
+            "Programster\\JsonValidator\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "iRAP\\JsonValidator\\Testing\\": "testing",
-            "iRAP\\JsonValidator\\Testing\\Tests\\": "testing/tests"
+            "Programster\\JsonValidator\\Testing\\": "testing",
+            "Programster\\JsonValidator\\Testing\\Tests\\": "testing/tests"
         }
     }
 }

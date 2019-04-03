@@ -4,7 +4,7 @@
  * 
  */
 
-namespace iRAP\JsonValidator\Testing\Tests;
+namespace Programster\JsonValidator\Testing\Tests;
 
 class Test2
 {
@@ -18,15 +18,15 @@ class Test2
         $jsonString = json_encode($myObj);
 
         $requiredAttributes = array(
-            new \iRAP\JsonValidator\Attribute("hello", new \iRAP\JsonValidator\RegExpValidator("/world/"))
+            new \Programster\JsonValidator\Attribute("hello", new \Programster\JsonValidator\RegExpValidator("/world/"))
         );
 
-        $objectValidator = new \iRAP\JsonValidator\ObjectValidator(
+        $objectValidator = new \Programster\JsonValidator\ObjectValidator(
             $requiredAttributes, 
             $optionalAttributes = array()
         );
 
-        $jsonValidator = new \iRAP\JsonValidator\JsonValidator($objectValidator);
+        $jsonValidator = new \Programster\JsonValidator\JsonValidator($objectValidator);
         $result = $jsonValidator->validate($jsonString);
 
         print "result: " . print_r($result, true) . PHP_EOL;

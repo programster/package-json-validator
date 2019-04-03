@@ -5,7 +5,7 @@
  * Each attribute has a name, and a value to validate.
  */
 
-namespace iRAP\JsonValidator;
+namespace Programster\JsonValidator;
 
 class Attribute
 {

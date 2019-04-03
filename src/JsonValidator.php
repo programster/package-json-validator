@@ -4,7 +4,7 @@
  * 
  */
 
-namespace iRAP\JsonValidator;
+namespace Programster\JsonValidator;
 
 class JsonValidator
 {

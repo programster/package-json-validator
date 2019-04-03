@@ -4,7 +4,7 @@
  * Validate an input using a regexp
  */
 
-namespace iRAP\JsonValidator;
+namespace Programster\JsonValidator;
 
 class RegExpValidator implements ValidatorInterface
 {
