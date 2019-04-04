@@ -6,7 +6,7 @@
 
 namespace Programster\JsonValidator;
 
-final class AttributeCollection
+final class AttributeCollection extends \ArrayObject
 {
     public function __construct(Attribute ...$attributes)
     {
