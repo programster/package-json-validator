@@ -54,7 +54,7 @@ class ArrayValidatorSpecific implements ValidatorInterface
                     if ($valueValidator->validate($value) !== true)
                     {
                         $failed = true;
-                        $this->m_errorMessage = $this->m_valueValidators->getErrorMessage();
+                        $this->m_errorMessage = $valueValidator->getErrorMessage();
                         break;
                     }
                 }
